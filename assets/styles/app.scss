@@ -1,7 +1,12 @@
+body {
+    background-color: rgb(96, 96, 171);
+}
+
 $primary: darken(#428bca, 20%);
 
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: rgb(96, 96, 171);
+.coverImage{
+    width: auto;
+    height: 10rem;
 }
