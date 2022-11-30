@@ -1,3 +1,11 @@
+###> ide/phpStorm
+.idea
+.idea/.gitignore
+.idea/modules.xml
+.idea/php.xml
+.idea/phpunit.xml
+.idea/sept22_symfony_game_library.iml
+.idea/vcs.xml
 
 ###> symfony/framework-bundle ###
 /.env.local

@@ -6,26 +6,24 @@
     <div class="container bg-primary">
         <div class="row">
             <div class="col-8 m-auto">
+                <h1 class="text-center mb-5">Game Library</h1>
                 <table class="table">
                     <thead>
-                        <tr class="text-center">
-                            <th span="4"> Game Library </th>
-                        </tr>
-                        <tr class="text-center">
-                            <th scope="col">Title</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">Cover</th>
-                        </tr>
+                    <tr class="text-center">
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Cover</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {% for game in games %}
-                    <tr scope="row">
-                        <td>{{game.title}}</td>
-                        <td>{{game.description}}</td>
-                        <td>{{game.year}}</td>
-                        <td><img class="coverImage" src="{{ game.cover }}"></td>
-                    </tr>
+                        <tr scope="row">
+                            <td class="text-center">{{ game.title }}</td>
+                            <td>{{ game.description }}</td>
+                            <td>{{ game.year }}</td>
+                            <td class="text-center"><img class="coverImage" src="{{ game.cover }}"></td>
+                        </tr>
                     {% endfor %}
                     </tbody>
                 </table>
