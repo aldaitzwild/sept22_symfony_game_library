@@ -11,5 +11,3 @@ require('bootstrap');
 
 // start the Stimulus application
 import './bootstrap';
-
-console.log("Youpi ca marche !");
