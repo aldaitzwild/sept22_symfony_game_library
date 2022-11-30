@@ -1,4 +1,5 @@
 ###> ide/phpStorm
+.idea
 .idea/.gitignore
 .idea/modules.xml
 .idea/php.xml
