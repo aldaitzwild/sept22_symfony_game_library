@@ -13,6 +13,7 @@
                         </tr>
                         <tr class="text-center">
                             <th scope="col">Title</th>
+                            <th scope="col">Studio</th>
                             <th scope="col">Description</th>
                             <th scope="col">Year</th>
                             <th scope="col">Cover</th>
@@ -22,6 +23,7 @@
                     {% for game in games %}
                     <tr scope="row">
                         <td>{{game.title}}</td>
+                        <td>{{game.studio.name}}</td>
                         <td>{{game.description}}</td>
                         <td>{{game.year}}</td>
                         <td><img class="coverImage" src="{{ game.cover }}"></td>
