@@ -5,26 +5,27 @@ namespace App\DataFixtures;
 use App\Entity\Studio;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class StudioFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $faker = Factory::create();
 
-        $ubisoft = new Studio();
-        $ubisoft->setName('Ubisoft');
-        $ubisoft->setNbOfEmployees(3);
-        $manager->persist($ubisoft);
+        $toto = new Studio();
+        $toto->setName('toto');
+        $toto->setNbOfEmployees(50);
+        $this->addReference('studio_0', $toto);
+        $manager->persist($toto);
 
-        $totoCorp = new Studio();
-        $totoCorp->setName('Toto Corporation international');
-        $totoCorp->setNbOfEmployees(2500);
-        $manager->persist($totoCorp);
-
-        $manager->flush();
-
-
-        $this->addReference("studio_1", $ubisoft);
-        $this->addReference("studio_2", $totoCorp);
+        for ($i = 1; $i < 5; $i++) {
+            $studio = new studio();
+            $studio->setName($faker->company());
+            $studio->setNbOfEmployees($faker->numberBetween(3, 100));
+            $this->addReference('studio_' . $i, $studio);
+            $manager->persist($studio);
+        }
+            $manager->flush();
     }
 }
