@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter un studio</h1>
+
+    <div class="row m-5">
+        <div class="col-6">
+            {{ form(form) }}
+        </div>
+    </div>
+{% endblock %}
