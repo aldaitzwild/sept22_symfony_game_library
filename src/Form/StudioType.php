@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Studio;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,9 +20,13 @@ class StudioType extends AbstractType
                 'label' => 'Nom',
                 'attr' => ['class' => 'red', 'placeholder' => 'Saisir le nom du studio']
             ])
-            ->add('NbOfEmployees', NumberType::class, [
+            ->add('nbOfEmployees', NumberType::class, [
                 'label' => 'Nombre d\'employés',
                 'attr' => ['placeholder' => 'Saisir le nombre d\'employé']
+            ])
+            ->add('city', ChoiceType::class, [
+                'label' => 'Ville',
+                'choices' => ['Lyon' => 'Lyon', 'Paris' => 'Paris', 'Nantes' => 'Nantes']
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer'

@@ -19,10 +19,13 @@ class Studio
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $NbOfEmployees = null;
+    private ?int $nbOfEmployees = null;
 
     #[ORM\OneToMany(mappedBy: 'studio', targetEntity: Game::class)]
     private Collection $games;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $city = null;
 
     public function __construct()
     {
@@ -48,12 +51,12 @@ class Studio
 
     public function getNbOfEmployees(): ?int
     {
-        return $this->NbOfEmployees;
+        return $this->nbOfEmployees;
     }
 
-    public function setNbOfEmployees(int $NbOfEmployees): self
+    public function setNbOfEmployees(int $nbOfEmployees): self
     {
-        $this->NbOfEmployees = $NbOfEmployees;
+        $this->nbOfEmployees = $nbOfEmployees;
 
         return $this;
     }
@@ -84,6 +87,18 @@ class Studio
                 $game->setStudio(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
