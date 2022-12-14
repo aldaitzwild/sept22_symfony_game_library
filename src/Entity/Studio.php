@@ -102,4 +102,9 @@ class Studio
 
         return $this;
     }
+
+    public function getFullName(): string 
+    {
+        return $this->name . ' - ' . $this->city;
+    }
 }
