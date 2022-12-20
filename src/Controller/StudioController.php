@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Studio;
 use App\Form\StudioType;
 use App\Repository\StudioRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,7 @@ class StudioController extends AbstractController
     }
 
     #[Route('/studio/add', name: 'app_studio_add')]
+    #[IsGranted('ROLE_USER')]
     public function add(Request $request, StudioRepository $studioRepository): Response
     {
         $studio = new Studio();
