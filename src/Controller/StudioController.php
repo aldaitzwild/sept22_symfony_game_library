@@ -24,7 +24,7 @@ class StudioController extends AbstractController
     }
 
     #[Route('/studio/add', name: 'app_studio_add')]
-    #[IsGranted('ROLE_USER')]
+    #[IsGranted('ROLE_ADMIN')]
     public function add(Request $request, StudioRepository $studioRepository): Response
     {
         $studio = new Studio();

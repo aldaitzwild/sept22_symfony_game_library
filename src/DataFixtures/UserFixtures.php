@@ -22,7 +22,18 @@ class UserFixtures extends Fixture
         $user->setEmail('thomas.aldaitz@wildcodeschool.com');
         $hash = $this->passwordHasher->hashPassword($user, 'toto123');
         $user->setPassword($hash);
+        $user->setFirstname('Thomas');
+        $user->setLastname('Aldaitz');
+        $user->setRoles(['ROLE_ADMIN', "ROLE_FORMATEUR"]);
         $manager->persist($user);
+
+        $robert = new User();
+        $robert->setEmail('robert.test@wildcodeschool.com');
+        $hashRobert = $this->passwordHasher->hashPassword($user, 'roro123');
+        $robert->setPassword($hashRobert);
+        $robert->setFirstname('Robert');
+        $robert->setLastname('Test');
+        $manager->persist($robert);
 
         $manager->flush();
     }
