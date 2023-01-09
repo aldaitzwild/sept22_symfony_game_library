@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 body {
-    background-color: rgb(96, 96, 171);
+    background-image: url('https://rare-gallery.com/uploads/posts/572412-retro-games.jpg');
 }
 
 $primary: darken(#428bca, 20%);
@@ -9,4 +11,13 @@ $primary: darken(#428bca, 20%);
 .coverImage{
     width: auto;
     height: 10rem;
+}
+
+h1 {
+    font-family: 'Michroma', sans-serif;
+    font-size: 45pt;
+}
+
+table th {
+    font-family: 'Michroma', sans-serif;
 }
