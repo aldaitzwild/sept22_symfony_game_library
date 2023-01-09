@@ -11,21 +11,29 @@ class StudioFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $studios = [
+            ['Square Enix', 'square_enix'],
+            ['Ubisoft', 'ubisoft'],
+            ['Blizzard', 'blizzard'],
+            ['EA', 'ea'],
+            ['Microsoft', 'microsoft'],
+            ['Nintendo', 'nintendo'],
+            ['Sony', 'sony'],
+            ['Namco Bandai', 'namco_bandai'],
+            ['Konami', 'konami'],
+            ['Bethesda', 'bethesda'],
+            ['Thomas et Ludo Company', 'tlc'],
+        ];
+
         $faker = Factory::create();
 
-        $toto = new Studio();
-        $toto->setName('toto');
-        $toto->setNbOfEmployees(50);
-        $this->addReference('studio_0', $toto);
-        $manager->persist($toto);
-
-        for ($i = 1; $i < 5; $i++) {
-            $studio = new studio();
-            $studio->setName($faker->company());
-            $studio->setNbOfEmployees($faker->numberBetween(3, 100));
-            $this->addReference('studio_' . $i, $studio);
+        foreach($studios as $studioData) {
+            $studio = new Studio();
+            $studio->setName($studioData[0]);
+            $studio->setNbOfEmployees($faker->numberBetween(20, 500));
+            $this->addReference($studioData[1], $studio);
             $manager->persist($studio);
         }
-            $manager->flush();
+        $manager->flush();
     }
 }
