@@ -27,6 +27,9 @@ class Studio
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $city = null;
 
+    #[ORM\Column]
+    private ?bool $status = null;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
@@ -106,5 +109,17 @@ class Studio
     public function getFullName(): string 
     {
         return $this->name . ' - ' . $this->city;
+    }
+
+    public function isStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
     }
 }
