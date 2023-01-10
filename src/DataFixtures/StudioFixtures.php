@@ -31,6 +31,7 @@ class StudioFixtures extends Fixture
             $studio = new Studio();
             $studio->setName($studioData[0]);
             $studio->setNbOfEmployees($faker->numberBetween(20, 500));
+            $studio->setStatus($faker->boolean(chanceOfGettingTrue:50));
             $this->addReference($studioData[1], $studio);
             $manager->persist($studio);
         }

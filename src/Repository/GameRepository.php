@@ -39,6 +39,17 @@ class GameRepository extends ServiceEntityRepository
         }
     }
 
+    public function allGamesWithStudios()
+    {
+        return $this->createQueryBuilder('g')
+                    ->join('g.studio', 's')
+                    ->select('g', 's')
+                    ->andWhere('s.status = 1')
+                    ->orderBy('s.name', 'ASC')
+                    ->getQuery()
+                    ->getResult();
+    }
+
 //    /**
 //     * @return Game[] Returns an array of Game objects
 //     */
