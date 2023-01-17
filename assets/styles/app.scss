@@ -2,6 +2,9 @@
 
 body {
     background-image: url('https://rare-gallery.com/uploads/posts/572412-retro-games.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 $primary: darken(#428bca, 20%);

@@ -44,7 +44,6 @@ class GameRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('g')
                     ->join('g.studio', 's')
                     ->select('g', 's')
-                    ->andWhere('s.status = 1')
                     ->orderBy('s.name', 'ASC')
                     ->getQuery()
                     ->getResult();

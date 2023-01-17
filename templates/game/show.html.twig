@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <input type="hidden" value="{{game.id}}" id="gameId">
+    <main class="container bg-light">
+        <h1>{{game.title}}</h1>
+
+        <p>{{game.description}}</p>
+
+        <ul>
+            <li>Année : {{game.year}}</li>
+            <li>Studio : {{game.studio.name}}</li>
+        </ul>
+
+        <h2>Les jeux du même studio :</h2>
+        <div id="relatedGames">
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('show') }}
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} - Game
+{% endblock %}
