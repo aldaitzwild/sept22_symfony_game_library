@@ -5,11 +5,11 @@ namespace App\Controller;
 use App\Entity\Game;
 use App\Form\GameType;
 use App\Repository\GameRepository;
-use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GameController extends AbstractController
 {
@@ -43,11 +43,17 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/{id}', name: 'app_game_show')]
-    public function show(Game $game): Response
+    public function show(Game $game, HttpClientInterface $client): Response
     {
+        $response = $client->request('GET', 'https://api.rawg.io/api/games?key=535c56f922784eb4af6824cba791ac27&search=' . $game->getTitle());
+
+        $content = $response->toArray();
+
+        $screenshots = $content['results'][0]['short_screenshots'];
 
         return $this->render('game/show.html.twig', [
             'game' => $game,
+            'screenshots' => $screenshots
         ]);
     }
 }

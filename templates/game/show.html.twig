@@ -2,9 +2,10 @@
 
 {% block body %}
     <input type="hidden" value="{{game.id}}" id="gameId">
-    <main class="container bg-light">
+    <main class="container bg-light p-5">
         <h1>{{game.title}}</h1>
 
+        <img src="{{game.cover}}">
         <p>{{game.description}}</p>
 
         <ul>
@@ -12,8 +13,14 @@
             <li>Studio : {{game.studio.name}}</li>
         </ul>
 
+        <div class="row">
+            {% for screenshot in screenshots %}
+                <img src="{{screenshot.image}}" class="col-2">
+            {% endfor %}
+        </div>
+
         <h2>Les jeux du même studio :</h2>
-        <div id="relatedGames">
+        <div id="relatedGames" class="row mb-5">
         </div>
     </main>
 {% endblock %}
