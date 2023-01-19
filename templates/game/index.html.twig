@@ -34,7 +34,11 @@
                             <td>{{game.title}}</td>
                             <td>{{game.studio.name}}</td>
                             <td>{{game.year}}</td>
-                            <td><img class="coverImage" src="{{ game.cover }}"></td>
+                            <td>
+                                <a href="{{ path('app_game_show', {'id': game.id}) }}">
+                                    <img class="coverImage" src="{{ game.cover }}">
+                                </a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

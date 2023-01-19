@@ -2,11 +2,13 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block body %}
-    <h1>Ajouter un jeu</h1>
+    <main class="container bg-light">
+        <h1>Ajouter un jeu</h1>
 
-    <div class="row m-5">
-        <div class="col-6">
-            {{ form(form) }}
+        <div class="row m-5">
+            <div class="col-6">
+                {{ form(form) }}
+            </div>
         </div>
-    </div>
+    </main>
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Game;
 use App\Entity\Studio;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,9 @@ class GameType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('year')
+            ->add('releaseDate', DateType::class, [
+                'label' => 'Date de sortie'
+            ])
             ->add('cover')
             ->add('studio', EntityType::class, [
                 'class' => Studio::class,
