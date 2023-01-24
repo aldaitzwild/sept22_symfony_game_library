@@ -3,25 +3,41 @@
 {% block body %}
     <input type="hidden" value="{{game.id}}" id="gameId">
     <main class="container bg-light p-5">
-        <h1>{{game.title}}</h1>
+        <h1 class="text-center m-2">{{game.title}}</h1>
+        <h2 class="text-muted text-center mb-5">{{game.studio.name}} - {{game.year}}</h2>
 
-        <img src="{{game.cover}}">
+        <div class="text-center m-5">
+            <img  src="{{game.cover}}">
+        </div>
         <p>{{game.description}}</p>
 
-        <ul>
-            <li>Année : {{game.year}}</li>
-            <li>Studio : {{game.studio.name}}</li>
-        </ul>
 
-        <div class="row">
-            {% for screenshot in screenshots %}
-                <img src="{{screenshot.image}}" class="col-2">
-            {% endfor %}
+        <h2>
+            <a data-bs-toggle="collapse" 
+            href="#screenGallery" 
+            role="button" 
+            aria-expanded="false" 
+            aria-controls="screenGallery">Images</a>
+        </h2>
+        <div class="collapse" id="screenGallery">
+            <div class="row m-5">
+                
+                {% for screenshot in screenshots %}
+                    <img src="{{screenshot.image}}" class="col-2 m-2">
+                {% endfor %}
+            </div>
         </div>
 
-        <h2>Les jeux du même studio :</h2>
+        <h2 class="mt-4">Les jeux du même studio :</h2>
         <div id="relatedGames" class="row mb-5">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
+
+        <footer class="text-center">
+            <cite >Dernière mise à jour : {{ game.createdAt | format_date(pattern='EEEE dd MMMM yyyy ', locale='fr') }}</cite>
+        </footer>
     </main>
 {% endblock %}
 
